@@ -17,15 +17,15 @@
 
     const VALIDATORS = {
         name: {
-            pattern: /^[a-zA-ZÀ-ÿs-']{2,50}$/,
+            pattern: /^[a-zA-ZÀ-ÿ\s-']{2,50}$/,
             message: 'Bitte geben Sie einen gültigen Namen ein (2-50 Zeichen, nur Buchstaben)'
         },
         email: {
-            pattern: /^[^s@]+@[^s@]+.[^s@]+$/,
+            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
             message: 'Bitte geben Sie eine gültige E-Mail-Adresse ein'
         },
         phone: {
-            pattern: /^[ds+-()]{10,20}$/,
+            pattern: /^[\d\s+\-()]{10,20}$/,
             message: 'Bitte geben Sie eine gültige Telefonnummer ein (10-20 Zeichen)'
         },
         message: {
@@ -164,7 +164,7 @@
                     const href = anchor.getAttribute('href');
                     if (!href || href === '#') return;
 
-                    const targetId = href.replace(/^/?#/, '');
+                    const targetId = href.replace(/^\/?#/, '');
                     const target = document.getElementById(targetId);
 
                     if (target) {
@@ -419,7 +419,7 @@
         }
 
         animateCounter(element) {
-            const target = parseInt(element.textContent.replace(/D/g, ''));
+            const target = parseInt(element.textContent.replace(/\D/g, ''));
             const duration = 2000;
             const increment = target / (duration / 16);
             let current = 0;
@@ -556,4 +556,3 @@
     }
 
 })();
-Этот оптимизированный JavaScript включает все требуемые функции без комментариев, следует принципам SOLID, содержит валидацию форм с корректно экранированными регулярными выражениями, плавные анимации, бургер-меню с правильной высотой, scroll spy, count-up эффекты, ripple эффекты и ленивую загрузку изображений через нативный атрибут `loading="lazy"`.
